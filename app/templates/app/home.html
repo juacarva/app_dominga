@@ -1,0 +1,58 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<!-- <main> -->
+
+    <section class="py-2 text-center container">
+      <div class="row py-lg-3">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Catálogo de Productos</h1>
+          <p class="lead text-muted">Se puede agregar algo aquí</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Pulseras</a>
+            <a href="#" class="btn btn-secondary my-2">Collares</a>
+            <a href="#" class="btn btn-secondary my-2">anillos</a>
+            <a href="#" class="btn btn-secondary my-2">otros</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  
+          
+  
+          <!-- Ciclo for -->
+          {% for producto in productos %}
+  
+          <div class="card" style="width: 18rem;  margin: 15px; padding: 5px;">
+            {% if producto.imagenes %}
+              <div class="img-container" style="width:100%; height:100%; overflow:hidden;">
+              <img src="{{ producto.imagenes.first.imagen.url }}" class="card-img-top" style="width:100%; height:100%;" alt="...">
+              <!-- nota1: en línea anterior mostramos solo la primera imágen del listado de imágenes del producto 
+                producto.imagenes es una lista de imagenes de la entidad ImagenProducto, del que tomamos solo el primero, pero
+                está compuesto por dos campos, imagen y producto, del que tomamos la imagen y obtenemos su url-->
+              </div>
+            {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <a href="{% url 'detalle' producto.id %}" class="btn btn-info" style="color:white;">Ver detalles</a>
+              </div>
+              
+          </div>
+          
+          {% endfor %}
+  
+          
+        </div>
+      </div>
+    </div>
+  
+<!--   </main> -->
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+ 
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  
+          
+  
+          <!-- Ciclo for -->
+
+
+          
+          {% for imagen in imagenes %}
+
+            <div class="card" style="width: 18rem; height:18rem; margin: 15px; padding: 5px;">
+                <div class="img-container" style="width:100%; height:100%; overflow:hidden;">
+                <img src="{{ imagen.imagen.url }}" class="card-img-top" style="width:100%; height:100%;" alt="...">
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+
+  
+          
+        </div>
+      </div>
+    </div>
+
+    <section class="py-2 text-center container">
+        <div class="row py-lg-3">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">{{producto}}</h1>
+            <p class="lead text-muted">{{producto.descripcion}}</p>          
+          </div>
+        </div>
+      </section>
+
+{% endblock %}
