@@ -1,2 +1,2 @@
 # app_dominga
-Sitio web Dominfa accesorios
+Sitio web Dominga accesorios
